@@ -9,6 +9,7 @@ real-time system observability for production deployment.
 import os
 import json
 import time
+import logging
 import psutil
 import threading
 from pathlib import Path
@@ -136,7 +137,7 @@ class MetricsCollector:
             cpu_percent = psutil.cpu_percent(interval=1)
             
             # Disk metrics
-            disk = psutil.disk_usage(self.data_dir)
+            disk = psutil.disk_usage(str(self.data_dir))
             
             # Network metrics
             network = psutil.net_io_counters()
@@ -174,7 +175,7 @@ class MetricsCollector:
         """Collect service-specific metrics"""
         try:
             # Get health data for all services
-            health_data = health_manager._load_health_data()
+            health_data = health_manager.get_overall_health()
             components = health_data.get("components", {})
             
             for service_name, health_info in components.items():
@@ -484,8 +485,8 @@ class MonitoringHandler(BaseHTTPRequestHandler):
         """Handle status endpoint"""
         try:
             # Get comprehensive status
-            health_data = health_manager._load_health_data()
-            overall_status = health_manager.get_overall_status()
+            health_data = health_manager.get_overall_health()
+            overall_status = health_data.get("overall_status", "unknown")
             
             # Get system metrics
             system_metrics = self.server.metrics_collector.system_metrics

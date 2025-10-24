@@ -1,0 +1,8 @@
+{
+  "symbol": "FDUSDUSDT",
+  "side": "BUY",
+  "confidence": 0.65,
+  "price": 1.0474,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

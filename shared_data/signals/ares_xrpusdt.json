@@ -1,0 +1,8 @@
+{
+  "symbol": "XRPUSDT",
+  "side": "HOLD",
+  "confidence": 0.7,
+  "price": 0.5099,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

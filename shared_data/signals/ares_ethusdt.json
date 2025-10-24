@@ -1,0 +1,8 @@
+{
+  "symbol": "ETHUSDT",
+  "side": "SELL",
+  "confidence": 0.79,
+  "price": 3091.9562,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

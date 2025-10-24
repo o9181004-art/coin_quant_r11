@@ -1,0 +1,8 @@
+{
+  "symbol": "KDAUSDT",
+  "side": "HOLD",
+  "confidence": 0.88,
+  "price": 0.8489,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

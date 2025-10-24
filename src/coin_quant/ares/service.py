@@ -100,7 +100,7 @@ class ARESService:
         self.running = False
         
         # Update health status
-        health_manager.set_component_status("ares", "RED", {
+        health_manager.set_ares_health("RED", {
             "last_update_ts": utc_now_seconds(),
             "updated_within_sec": 0,
             "signal_count": self.signal_count,
@@ -145,7 +145,7 @@ class ARESService:
             True if feeder is healthy and fresh, False otherwise
         """
         try:
-            feeder_status = health_manager.get_component_status("feeder")
+            feeder_status = health_manager.get_feeder_health()
             if not feeder_status:
                 self.logger.warning("No feeder health status available")
                 return False
@@ -314,7 +314,7 @@ class ARESService:
             feeder_health_ok = self._check_feeder_health()
             
             # Update health
-            health_manager.set_component_status("ares", status, {
+            health_manager.set_ares_health(status, {
                 "last_update_ts": current_time,
                 "updated_within_sec": age_seconds(self.last_signal_time) or 0,
                 "signal_count": self.signal_count,

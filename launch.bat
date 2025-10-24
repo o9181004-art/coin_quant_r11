@@ -18,7 +18,8 @@ echo Activating virtual environment...
 call venv\Scripts\activate.bat
 
 REM Check Python version
-python --version
+echo Checking Python version in virtual environment...
+venv\Scripts\python.exe --version
 echo.
 
 REM Show menu
@@ -27,38 +28,48 @@ echo Select service to launch:
 echo 1. Feeder Service
 echo 2. ARES Service  
 echo 3. Trader Service
-echo 4. Run All Services (in order)
-echo 5. Run Validation Tests
-echo 6. Exit
+echo 4. Dashboard (Streamlit)
+echo 5. Run All Services (in order)
+echo 6. Run Validation Tests
+echo 7. Exit
 echo.
-set /p choice="Enter your choice (1-6): "
+set /p choice="Enter your choice (1-7): "
 
 if "%choice%"=="1" goto feeder
 if "%choice%"=="2" goto ares
 if "%choice%"=="3" goto trader
-if "%choice%"=="4" goto all
-if "%choice%"=="5" goto validate
-if "%choice%"=="6" goto exit
+if "%choice%"=="4" goto dashboard
+if "%choice%"=="5" goto all
+if "%choice%"=="6" goto validate
+if "%choice%"=="7" goto exit
 goto menu
 
 :feeder
 echo.
 echo Starting Feeder Service...
-python launch.py feeder
+venv\Scripts\python.exe launch.py feeder
 pause
 goto menu
 
 :ares
 echo.
 echo Starting ARES Service...
-python launch.py ares
+venv\Scripts\python.exe launch.py ares
 pause
 goto menu
 
 :trader
 echo.
 echo Starting Trader Service...
-python launch.py trader
+venv\Scripts\python.exe launch.py trader
+pause
+goto menu
+
+:dashboard
+echo.
+echo Starting Dashboard...
+echo Opening Streamlit dashboard in your browser...
+venv\Scripts\streamlit.exe run app.py
 pause
 goto menu
 
@@ -67,15 +78,15 @@ echo.
 echo Starting all services in order...
 echo.
 echo 1. Starting Feeder Service...
-start "Feeder" python launch.py feeder
+start "Feeder" venv\Scripts\python.exe launch.py feeder
 timeout /t 5 /nobreak >nul
 
 echo 2. Starting ARES Service...
-start "ARES" python launch.py ares
+start "ARES" venv\Scripts\python.exe launch.py ares
 timeout /t 5 /nobreak >nul
 
 echo 3. Starting Trader Service...
-start "Trader" python launch.py trader
+start "Trader" venv\Scripts\python.exe launch.py trader
 timeout /t 5 /nobreak >nul
 
 echo.
@@ -87,7 +98,7 @@ goto menu
 :validate
 echo.
 echo Running validation tests...
-python validate.py
+venv\Scripts\python.exe validate.py
 pause
 goto menu
 

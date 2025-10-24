@@ -1,0 +1,8 @@
+{
+  "symbol": "SOLUSDT",
+  "side": "SELL",
+  "confidence": 0.61,
+  "price": 172.8081,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

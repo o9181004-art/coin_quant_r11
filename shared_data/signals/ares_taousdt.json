@@ -1,0 +1,8 @@
+{
+  "symbol": "TAOUSDT",
+  "side": "SELL",
+  "confidence": 0.72,
+  "price": 0.9666,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

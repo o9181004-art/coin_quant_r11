@@ -1,0 +1,8 @@
+{
+  "symbol": "ADAUSDT",
+  "side": "BUY",
+  "confidence": 0.66,
+  "price": 0.4669,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

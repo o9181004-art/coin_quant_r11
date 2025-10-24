@@ -1,0 +1,12 @@
+﻿from __future__ import annotations
+import os
+from pathlib import Path
+
+def ssot_dir() -> Path:
+    sd = os.environ.get("SHARED_DATA")
+    if sd:
+        return Path(sd).resolve()
+    return (Path.cwd() / "shared_data").resolve()
+
+# Canonical account snapshot target
+ACCOUNT_SNAPSHOT_PATH: Path = ssot_dir() / "account_info.json"

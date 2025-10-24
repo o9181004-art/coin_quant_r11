@@ -1,0 +1,301 @@
+/* UI Build Sentinel & LKG - Centralized Styles */
+
+/* Dark Theme Base */
+:root {
+    --bg-primary: #0e1117;
+    --bg-secondary: #1e1e1e;
+    --bg-tertiary: #262730;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --accent-green: #4CAF50;
+    --accent-orange: #FF9800;
+    --accent-red: #f63366;
+    --border-color: #333333;
+    --border-light: #444444;
+}
+
+/* Main Layout */
+.main .block-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    max-width: 100%;
+}
+
+/* Header Styles */
+.stApp>header {
+    background-color: var(--bg-secondary);
+}
+
+/* Sidebar Styles */
+.css-1d391kg {
+    background-color: var(--bg-secondary);
+}
+
+/* Button Styles */
+.stButton>button {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.stButton>button:hover {
+    background-color: var(--bg-primary);
+    border-color: var(--border-light);
+}
+
+/* Input Styles */
+.stTextInput>div>div>input,
+.stNumberInput>div>div>input,
+.stSelectbox>div>div>select {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.3rem;
+}
+
+/* Metric Cards */
+.metric-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.metric-change {
+    font-size: 0.6rem;
+    color: var(--accent-green);
+    background-color: #0d2818;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.3rem;
+    display: inline-block;
+}
+
+/* Symbol Cards */
+.symbol-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.symbol-card:hover {
+    border-color: var(--border-light);
+    transform: translateY(-2px);
+}
+
+.symbol-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.symbol-price {
+    font-size: 1rem;
+    color: var(--accent-green);
+    margin-bottom: 0.5rem;
+}
+
+.symbol-change {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Balance Display */
+.balance-display {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--bg-secondary);
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+}
+
+.balance-value {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--accent-green);
+}
+
+.balance-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+/* Notification Styles */
+.notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 400px;
+}
+
+.notification {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Alert Bar */
+.alert-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 0.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.alert-warning {
+    background-color: #ff9800;
+    color: #000;
+}
+
+.alert-error {
+    background-color: #f63366;
+    color: #fff;
+}
+
+.alert-info {
+    background-color: #2196f3;
+    color: #fff;
+}
+
+/* Spacing Utilities */
+.margin-bottom-small {
+    margin-bottom: 0.5rem;
+}
+
+.margin-bottom-medium {
+    margin-bottom: 1rem;
+}
+
+.margin-bottom-large {
+    margin-bottom: 1.5rem;
+}
+
+.margin-top-small {
+    margin-top: 0.5rem;
+}
+
+.margin-top-medium {
+    margin-top: 1rem;
+}
+
+.margin-top-large {
+    margin-top: 1.5rem;
+}
+
+/* Divider */
+.divider {
+    margin: 2rem 0 1.5rem 0;
+    border-color: var(--border-light);
+}
+
+/* Status Indicators */
+.status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.status-green {
+    background-color: var(--accent-green);
+}
+
+.status-orange {
+    background-color: var(--accent-orange);
+}
+
+.status-red {
+    background-color: var(--accent-red);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--border-color);
+    border-radius: 50%;
+    border-top-color: var(--accent-green);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .metric-card,
+    .symbol-card {
+        padding: 0.75rem;
+    }
+
+    .metric-value {
+        font-size: 1.4rem;
+    }
+
+    .balance-value {
+        font-size: 1.4rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+
+    .notification-container,
+    .alert-bar {
+        display: none;
+    }
+
+    .metric-card,
+    .symbol-card {
+        break-inside: avoid;
+    }
+}

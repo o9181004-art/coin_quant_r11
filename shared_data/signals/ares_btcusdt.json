@@ -1,0 +1,8 @@
+{
+  "symbol": "BTCUSDT",
+  "side": "BUY",
+  "confidence": 0.9,
+  "price": 68097.5748,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

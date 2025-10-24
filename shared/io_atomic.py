@@ -1,0 +1,22 @@
+﻿# Standalone compatibility shim for legacy imports:
+#   from shared.io_atomic import atomic_write_json, atomic_write_text
+# Provides atomic UTF-8 writes without depending on io_canonical.
+
+from __future__ import annotations
+import json
+from pathlib import Path
+
+def _atomic_replace(target: Path, tmp: Path):
+    tmp.replace(target)
+
+def atomic_write_text(path, text: str):
+    p = Path(path); p.parent.mkdir(parents=True, exist_ok=True)
+    tmp = p.with_suffix(p.suffix + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    _atomic_replace(p, tmp)
+
+def atomic_write_json(path, data):
+    p = Path(path); p.parent.mkdir(parents=True, exist_ok=True)
+    tmp = p.with_suffix(p.suffix + ".tmp")
+    tmp.write_text(json.dumps(data, ensure_ascii=False, separators=(",",":")), encoding="utf-8")
+    _atomic_replace(p, tmp)

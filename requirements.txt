@@ -4,9 +4,10 @@
 # Web framework and UI
 streamlit>=1.28.0
 
-# Data processing
+# Data processing and visualization
 pandas>=2.0.0
 numpy>=1.24.0
+plotly>=5.15.0
 
 # HTTP and WebSocket clients
 requests>=2.31.0

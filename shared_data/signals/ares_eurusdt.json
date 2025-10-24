@@ -1,0 +1,8 @@
+{
+  "symbol": "EURUSDT",
+  "side": "BUY",
+  "confidence": 0.81,
+  "price": 1.0201,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

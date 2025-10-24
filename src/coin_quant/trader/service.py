@@ -92,8 +92,13 @@ class TraderService:
             self.logger.info(f"Trading config: {self.trading_config}")
             
             # Validate configuration
-            if not config_manager.validate_config():
-                self.logger.error("Configuration validation failed")
+            try:
+                if not config_manager.validate_config():
+                    self.logger.error("Configuration validation failed")
+                    self.logger.error(f"Validation errors: {config_manager.get_validation_errors()}")
+                    return False
+            except Exception as e:
+                self.logger.error(f"Configuration validation error: {e}")
                 return False
             
             # Start main loop
@@ -160,7 +165,7 @@ class TraderService:
             True if ARES is healthy and fresh, False otherwise
         """
         try:
-            ares_status = health_manager.get_component_status("ares")
+            ares_status = health_manager.get_ares_health()
             if not ares_status:
                 self.logger.warning("No ARES health status available")
                 return False
@@ -461,7 +466,7 @@ class TraderService:
             True if ARES is healthy and fresh, False otherwise
         """
         try:
-            ares_status = health_manager.get_component_status("ares")
+            ares_status = health_manager.get_ares_health()
             if not ares_status:
                 self.logger.warning("No ARES health status available")
                 return False

@@ -1,0 +1,8 @@
+{
+  "symbol": "DOGEUSDT",
+  "side": "SELL",
+  "confidence": 0.64,
+  "price": 0.0779,
+  "timestamp": 1761303543.8434644,
+  "strategy": "mock_signal"
+}

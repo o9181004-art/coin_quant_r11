@@ -42,7 +42,7 @@ class FeederService:
         
         # WebSocket configuration
         if self.use_testnet:
-            self.ws_url = "wss://testnet.binance.vision/ws"
+            self.ws_url = "wss://testnet.binance.vision"
             self.rest_url = "https://testnet.binance.vision"
         else:
             self.ws_url = "wss://stream.binance.com:9443/ws"
@@ -80,8 +80,13 @@ class FeederService:
             self.logger.info(f"Configuration: {self.config}")
             
             # Validate configuration
-            if not config_manager.validate_config():
-                self.logger.error("Configuration validation failed")
+            try:
+                if not config_manager.validate_config():
+                    self.logger.error("Configuration validation failed")
+                    self.logger.error(f"Validation errors: {config_manager.get_validation_errors()}")
+                    return False
+            except Exception as e:
+                self.logger.error(f"Configuration validation error: {e}")
                 return False
             
             # Initialize symbols
@@ -145,10 +150,9 @@ class FeederService:
         
         while self.running and retry_count < max_retries:
             try:
-                # Build WebSocket URL for multiple symbols
-                streams = [f"{symbol.lower()}@ticker" for symbol in self.symbols]
-                stream_names = "/".join(streams)
-                ws_url = f"{self.ws_url}/{stream_names}"
+                # Build WebSocket URL for single symbol (test with BTCUSDT first)
+                symbol = self.symbols[0].lower() if self.symbols else "btcusdt"
+                ws_url = f"{self.ws_url}/stream?streams={symbol}@ticker"
                 
                 self.logger.info(f"Connecting to WebSocket: {ws_url}")
                 
