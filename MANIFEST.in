@@ -1,0 +1,49 @@
+# Coin Quant R11 - Manifest
+# Include additional files in the package distribution
+
+include README.md
+include LICENSE
+include CHANGELOG.md
+include CONTRIBUTING.md
+include CODE_OF_CONDUCT.md
+include SECURITY.md
+include SUPPORT.md
+include ROADMAP.md
+include AUTHORS.md
+include CONTRIBUTORS.md
+include CITATION.md
+include FUNDING.md
+include MIGRATION.md
+include RUN_GUIDE.md
+include requirements.txt
+include config.env.template
+include launch.py
+include launch.bat
+include launch.ps1
+include validate.py
+include test_smoke.py
+include setup.py
+include Makefile
+include Dockerfile
+include docker-compose.yml
+include nginx.conf
+
+recursive-include src/coin_quant *.py
+recursive-include .github *
+recursive-include shared_data/health *.json
+recursive-include shared_data/memory *.json
+recursive-include shared_data/logs *.log
+
+exclude *.pyc
+exclude __pycache__
+exclude .git
+exclude .gitignore
+exclude .DS_Store
+exclude Thumbs.db
+exclude *.tmp
+exclude *.temp
+exclude test_*
+exclude venv
+exclude env
+exclude .venv
+exclude .env

@@ -1,0 +1,18 @@
+{
+  "ares": [
+    "2025-10-24 10:44:21 - ares - INFO - === ARES Service Starting ===",
+    "2025-10-24 10:44:21 - ares - INFO - Configuration: {'max_symbols': 40, 'signal_interval': 30, 'allow_default_signals': False}",
+    "2025-10-24 10:44:21 - ares - ERROR - Configuration validation failed"
+  ],
+  "feeder": [
+    "2025-10-24 10:44:18 - feeder - INFO - === Feeder Service Starting ===",
+    "2025-10-24 10:44:18 - feeder - INFO - Configuration: {'mode': 'ALL', 'quote': 'USDT', 'top_n': 40, 'refresh_min': 10}",
+    "2025-10-24 10:44:18 - feeder - ERROR - Configuration validation failed"
+  ],
+  "trader": [
+    "2025-10-24 10:44:23 - trader - INFO - === Trader Service Starting ===",
+    "2025-10-24 10:44:23 - trader - INFO - Configuration: {'order_cooldown': 1, 'disable_guardrails': False, 'allow_without_uds': False}",
+    "2025-10-24 10:44:23 - trader - INFO - Trading config: {'mode': 'testnet', 'simulation': True, 'paper_mode': False, 'auto_trading': False, 'default_symbol': 'BTCUSDT', 'risk_profile': 'conservative', 'disable_guardrails': False}",
+    "2025-10-24 10:44:23 - trader - ERROR - Configuration validation failed"
+  ]
+}

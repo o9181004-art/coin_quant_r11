@@ -1,0 +1,22 @@
+{
+  "timestamp": 1761276816.4261494,
+  "components": {
+    "feeder": {
+      "service": "feeder",
+      "status": "ok",
+      "last_update_ts": 1761276816.4261494,
+      "updated_within_sec": 0.00014925003051757812,
+      "symbols": [
+        "BTCUSDT",
+        "ETHUSDT"
+      ],
+      "ws_connected": true,
+      "rest_api_ok": true,
+      "symbols_count": 2,
+      "last_symbol_update": 1761276816.4261494,
+      "data_freshness_ok": true,
+      "error_count": 0,
+      "warning_count": 0
+    }
+  }
+}

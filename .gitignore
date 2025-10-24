@@ -1,0 +1,21 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+
+# venv
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Runtime data
+shared_data/logs/
+shared_data/health/
+shared_data/memory/
+diagnostics/
+test_acceptance_data/

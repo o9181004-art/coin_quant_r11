@@ -1,0 +1,9 @@
+{
+  "timestamp": 1761276181.5488076,
+  "schema_version": "1.0",
+  "snapshot_type": "full",
+  "snapshot_id": "full_1761276181",
+  "data": {
+    "test": "data"
+  }
+}

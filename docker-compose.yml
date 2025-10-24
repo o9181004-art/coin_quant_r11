@@ -1,0 +1,79 @@
+# Coin Quant R11 - Docker Compose
+# Orchestrates all services in containers
+
+version: '3.8'
+
+services:
+  feeder:
+    build: .
+    container_name: coin-quant-feeder
+    command: python launch.py feeder
+    volumes:
+      - ./shared_data:/app/shared_data
+      - ./config.env:/app/config.env
+    environment:
+      - PYTHONPATH=/app/src
+      - COIN_QUANT_DATA_DIR=/app/shared_data
+    restart: unless-stopped
+    depends_on:
+      - redis
+
+  ares:
+    build: .
+    container_name: coin-quant-ares
+    command: python launch.py ares
+    volumes:
+      - ./shared_data:/app/shared_data
+      - ./config.env:/app/config.env
+    environment:
+      - PYTHONPATH=/app/src
+      - COIN_QUANT_DATA_DIR=/app/shared_data
+    restart: unless-stopped
+    depends_on:
+      - feeder
+      - redis
+
+  trader:
+    build: .
+    container_name: coin-quant-trader
+    command: python launch.py trader
+    volumes:
+      - ./shared_data:/app/shared_data
+      - ./config.env:/app/config.env
+    environment:
+      - PYTHONPATH=/app/src
+      - COIN_QUANT_DATA_DIR=/app/shared_data
+    restart: unless-stopped
+    depends_on:
+      - ares
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    container_name: coin-quant-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: coin-quant-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - feeder
+      - ares
+      - trader
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+
+networks:
+  default:
+    name: coin-quant-network

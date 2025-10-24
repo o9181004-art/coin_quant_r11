@@ -1,0 +1,48 @@
+[project]
+name = "coin_quant"
+version = "1.0.0-rc1"
+description = "Clean, minimal, and stable Python 3.11 trading runtime"
+authors = [{name = "Coin Quant Team"}]
+requires-python = ">=3.11"
+dependencies = [
+    "psutil",
+    "numpy",
+    "pandas",
+    "python-dotenv",
+    "requests",
+    "websockets",
+    "binance-connector",
+    "plyer",
+]
+
+[project.scripts]
+coin-quant-feeder = "coin_quant.feeder.service:main"
+coin-quant-ares = "coin_quant.ares.service:main"
+coin-quant-trader = "coin_quant.trader.service:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+no_strict_optional = false
+warn_unused_ignores = false
+explicit_package_bases = true
+
+[tool.pyright]
+pythonVersion = "3.11"
+pythonPlatform = "Windows"
+venvPath = "."
+venv = "venv"
+include = ["**/*.py"]
+exclude = ["**/node_modules", "**/__pycache__"]
+ignore = []
+reportMissingImports = "none"
+reportMissingTypeStubs = false
+typeCheckingMode = "off"
+useLibraryCodeForTypes = true

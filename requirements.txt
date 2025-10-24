@@ -1,0 +1,29 @@
+# Coin Quant R11 - Requirements
+# Core dependencies for the trading system
+
+# Web framework and UI
+streamlit>=1.28.0
+
+# Data processing
+pandas>=2.0.0
+numpy>=1.24.0
+
+# HTTP and WebSocket clients
+requests>=2.31.0
+websockets>=11.0.0
+
+# Configuration and environment
+python-dotenv>=1.0.0
+
+# System monitoring
+psutil>=5.9.0
+
+# Desktop notifications
+plyer>=2.1.0
+
+# Binance API client
+binance-connector>=3.0.0
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0

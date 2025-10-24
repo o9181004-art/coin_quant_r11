@@ -1,0 +1,62 @@
+[
+  {
+    "timestamp": 1761270258.0,
+    "service": "feeder",
+    "level": "feeder",
+    "message": "INFO - === Feeder Service Starting ==="
+  },
+  {
+    "timestamp": 1761270258.0,
+    "service": "feeder",
+    "level": "feeder",
+    "message": "INFO - Configuration: {'mode': 'ALL', 'quote': 'USDT', 'top_n': 40, 'refresh_min': 10}"
+  },
+  {
+    "timestamp": 1761270258.0,
+    "service": "feeder",
+    "level": "feeder",
+    "message": "ERROR - Configuration validation failed"
+  },
+  {
+    "timestamp": 1761270261.0,
+    "service": "ares",
+    "level": "ares",
+    "message": "INFO - === ARES Service Starting ==="
+  },
+  {
+    "timestamp": 1761270261.0,
+    "service": "ares",
+    "level": "ares",
+    "message": "INFO - Configuration: {'max_symbols': 40, 'signal_interval': 30, 'allow_default_signals': False}"
+  },
+  {
+    "timestamp": 1761270261.0,
+    "service": "ares",
+    "level": "ares",
+    "message": "ERROR - Configuration validation failed"
+  },
+  {
+    "timestamp": 1761270263.0,
+    "service": "trader",
+    "level": "trader",
+    "message": "INFO - === Trader Service Starting ==="
+  },
+  {
+    "timestamp": 1761270263.0,
+    "service": "trader",
+    "level": "trader",
+    "message": "INFO - Configuration: {'order_cooldown': 1, 'disable_guardrails': False, 'allow_without_uds': False}"
+  },
+  {
+    "timestamp": 1761270263.0,
+    "service": "trader",
+    "level": "trader",
+    "message": "INFO - Trading config: {'mode': 'testnet', 'simulation': True, 'paper_mode': False, 'auto_trading': False, 'default_symbol': 'BTCUSDT', 'risk_profile': 'conservative', 'disable_guardrails': False}"
+  },
+  {
+    "timestamp": 1761270263.0,
+    "service": "trader",
+    "level": "trader",
+    "message": "ERROR - Configuration validation failed"
+  }
+]

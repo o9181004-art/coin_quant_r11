@@ -1,0 +1,19 @@
+{
+  "status": "corrupted",
+  "timestamp": 1761276574.4116406,
+  "errors": [
+    "Event chain file missing",
+    "Snapshot store file missing",
+    "Hash chain file missing"
+  ],
+  "warnings": [],
+  "merkle_root": null,
+  "chain_length": 0,
+  "last_valid_snapshot": null,
+  "quarantine_active": true,
+  "remediation_steps": [
+    "Restart services to recreate event chain",
+    "Restart services to recreate snapshot store",
+    "Restart services to recreate hash chain"
+  ]
+}

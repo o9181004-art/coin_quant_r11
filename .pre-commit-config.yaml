@@ -1,0 +1,184 @@
+# Coin Quant R11 - Pre-commit Configuration
+# Git hooks for code quality and consistency
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: check-docstring-first
+      - id: requirements-txt-fixer
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-typed-ast
+      - id: check-unicode
+      - id: check-vcs-permalinks
+      - id: check-yaml
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: debug-statements
+      - id: check-docstring-first
+      - id: requirements-txt-fixer
+      - id: check-ast
+      - id: check-builtin-literals
+      - id: check-typed-ast
+      - id: check-unicode
+      - id: check-vcs-permalinks
+
+  - repo: https://github.com/psf/black
+    rev: 23.7.0
+    hooks:
+      - id: black
+        language_version: python3.11
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        args: ["--max-line-length=88", "--extend-ignore=E203,W503"]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.5.1
+    hooks:
+      - id: mypy
+        additional_dependencies: [types-requests, types-PyYAML]
+        args: ["--ignore-missing-imports"]
+
+  - repo: https://github.com/pycqa/bandit
+    rev: 1.7.5
+    hooks:
+      - id: bandit
+        args: ["-r", "src/coin_quant", "-f", "json", "-o", "bandit-report.json"]
+
+  - repo: https://github.com/pycqa/safety
+    rev: 2.3.5
+    hooks:
+      - id: safety
+        args: ["--json", "--output", "safety-report.json"]
+
+  - repo: https://github.com/pycqa/radon
+    rev: 6.0.1
+    hooks:
+      - id: radon-cc
+        args: ["--min", "B"]
+      - id: radon-mi
+        args: ["--min", "B"]
+
+  - repo: https://github.com/pycqa/vulture
+    rev: 2.9.1
+    hooks:
+      - id: vulture
+        args: ["--min-confidence", "80"]
+
+  - repo: https://github.com/pycqa/pylint
+    rev: v2.17.5
+    hooks:
+      - id: pylint
+        args: ["--disable=C0114,C0116"]
+
+  - repo: https://github.com/pycqa/pydocstyle
+    rev: 6.3.0
+    hooks:
+      - id: pydocstyle
+        args: ["--convention=google"]
+
+  - repo: https://github.com/pycqa/autopep8
+    rev: v2.0.2
+    hooks:
+      - id: autopep8
+        args: ["--in-place", "--aggressive", "--aggressive"]
+
+  - repo: https://github.com/pycqa/pyupgrade
+    rev: v3.7.0
+    hooks:
+      - id: pyupgrade
+        args: ["--py311-plus"]
+
+  - repo: https://github.com/pycqa/check-ast
+    rev: v1.0.0
+    hooks:
+      - id: check-ast
+
+  - repo: https://github.com/pycqa/check-builtin-literals
+    rev: v1.0.0
+    hooks:
+      - id: check-builtin-literals
+
+  - repo: https://github.com/pycqa/check-typed-ast
+    rev: v1.0.0
+    hooks:
+      - id: check-typed-ast
+
+  - repo: https://github.com/pycqa/check-unicode
+    rev: v1.0.0
+    hooks:
+      - id: check-unicode
+
+  - repo: https://github.com/pycqa/check-vcs-permalinks
+    rev: v1.0.0
+    hooks:
+      - id: check-vcs-permalinks
+
+  - repo: https://github.com/pycqa/check-yaml
+    rev: v1.0.0
+    hooks:
+      - id: check-yaml
+
+  - repo: https://github.com/pycqa/check-json
+    rev: v1.0.0
+    hooks:
+      - id: check-json
+
+  - repo: https://github.com/pycqa/check-toml
+    rev: v1.0.0
+    hooks:
+      - id: check-toml
+
+  - repo: https://github.com/pycqa/check-xml
+    rev: v1.0.0
+    hooks:
+      - id: check-xml
+
+  - repo: https://github.com/pycqa/check-case-conflict
+    rev: v1.0.0
+    hooks:
+      - id: check-case-conflict
+
+  - repo: https://github.com/pycqa/check-merge-conflict
+    rev: v1.0.0
+    hooks:
+      - id: check-merge-conflict
+
+  - repo: https://github.com/pycqa/debug-statements
+    rev: v1.0.0
+    hooks:
+      - id: debug-statements
+
+  - repo: https://github.com/pycqa/check-docstring-first
+    rev: v1.0.0
+    hooks:
+      - id: check-docstring-first
+
+  - repo: https://github.com/pycqa/requirements-txt-fixer
+    rev: v1.0.0
+    hooks:
+      - id: requirements-txt-fixer

@@ -1,0 +1,71 @@
+# Coin Quant R11 - EditorConfig
+# Editor configuration for consistent coding style
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{py,pyi}]
+indent_style = space
+indent_size = 4
+max_line_length = 88
+
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[*.{json,jsonc}]
+indent_style = space
+indent_size = 2
+
+[*.{toml,ini,cfg}]
+indent_style = space
+indent_size = 4
+
+[*.{md,rst}]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false
+
+[*.{js,ts,jsx,tsx}]
+indent_style = space
+indent_size = 2
+
+[*.{html,css,scss}]
+indent_style = space
+indent_size = 2
+
+[*.{sh,bash}]
+indent_style = space
+indent_size = 2
+
+[*.{bat,cmd}]
+indent_style = space
+indent_size = 2
+
+[*.{ps1,psm1}]
+indent_style = space
+indent_size = 2
+
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+[*.{dockerfile,Dockerfile}]
+indent_style = space
+indent_size = 2
+
+[*.{gitignore,gitattributes}]
+indent_style = space
+indent_size = 2
+
+[*.{txt,log}]
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = false

@@ -1,0 +1,95 @@
+{
+  "timestamp": 1761278708.1598969,
+  "results": [
+    {
+      "drill_type": "feeder_outage",
+      "status": "failed",
+      "start_time": 1761278633.043338,
+      "end_time": 1761278663.0973701,
+      "expected_observations": [
+        "ARES blocks signal generation with stale-health reason",
+        "Trader waits for account/feeder readiness",
+        "Logs show backoff and recovery messages",
+        "Services recover once Feeder restarts"
+      ],
+      "actual_observations": [
+        "Initial system health: {'timestamp': 1761278632.9618177, 'components': {'feeder': {'service': 'feeder', 'status': 'ok', 'last_update_ts': 1761278632.9608178, 'updated_within_sec': 0.0018177032470703125, 'symbols': ['BTCUSDT', 'ETHUSDT'], 'ws_connected': True, 'rest_api_ok': True, 'symbols_count': 2, 'last_symbol_update': 1761278632.9608178, 'data_freshness_ok': True, 'error_count': 0, 'warning_count': 0}}}",
+        "Feeder service restarted",
+        "System recovered in 0.0 seconds"
+      ],
+      "success_conditions": [
+        "ARES health status changes to degraded",
+        "ARES blocked_reason contains 'feeder_data_stale'",
+        "Trader readiness_gate_passed becomes false",
+        "System recovers within 5 minutes of Feeder restart"
+      ],
+      "success": false,
+      "errors": [
+        "Feeder service PID not found",
+        "ARES failed to detect Feeder outage",
+        "Trader failed to block on readiness gate"
+      ],
+      "recovery_time": 0.0
+    },
+    {
+      "drill_type": "insufficient_balance",
+      "status": "failed",
+      "start_time": 1761278668.0985503,
+      "end_time": 1761278698.13061,
+      "expected_observations": [
+        "Trader detects insufficient balance",
+        "Order sizes are down-scaled automatically",
+        "Retry attempts are bounded",
+        "Symbol is quarantined after persistent failure"
+      ],
+      "actual_observations": [
+        "Initial quarantined symbols: []",
+        "Simulating insufficient balance scenario"
+      ],
+      "success_conditions": [
+        "Trader logs insufficient balance errors",
+        "Order size scaling is applied",
+        "Retry count is bounded",
+        "Symbol appears in quarantine list"
+      ],
+      "success": false,
+      "errors": [
+        "Order size scaling not observed",
+        "Retry attempts not observed",
+        "No new symbols quarantined"
+      ],
+      "recovery_time": null
+    },
+    {
+      "drill_type": "memory_corruption",
+      "status": "completed",
+      "start_time": 1761278703.1311522,
+      "end_time": 1761278703.1587758,
+      "expected_observations": [
+        "Memory integrity check fails",
+        "Memory health status changes to degraded/error",
+        "Debug bundle is exported automatically",
+        "Replay from last good snapshot succeeds",
+        "Quarantine scope is limited to affected components"
+      ],
+      "actual_observations": [
+        "Initial memory integrity: {'status': 'corrupted', 'timestamp': 1761278632.9788177, 'errors': ['Event chain file missing', 'Snapshot store file missing', 'Hash chain file missing'], 'warnings': [], 'merkle_root': None, 'chain_length': 0, 'last_valid_snapshot': None, 'quarantine_active': True, 'remediation_steps': ['Restart services to recreate event chain', 'Restart services to recreate snapshot store', 'Restart services to recreate hash chain']}",
+        "Memory corruption injected",
+        "Memory corruption detected: corrupted",
+        "Debug bundle exported: C:\\Users\\LeeSG\\Desktop\\coin_quant_r11\\shared_data\\debug_bundles\\bundle_1761278703",
+        "Replay from snapshot succeeded",
+        "Quarantine scope: memory_layer",
+        "Memory restored from backup"
+      ],
+      "success_conditions": [
+        "Memory integrity status is not 'valid'",
+        "Debug bundle export succeeds",
+        "Replay reconstructs state deterministically",
+        "Quarantine is limited to affected scope"
+      ],
+      "success": true,
+      "errors": [],
+      "recovery_time": null
+    }
+  ]
+}
